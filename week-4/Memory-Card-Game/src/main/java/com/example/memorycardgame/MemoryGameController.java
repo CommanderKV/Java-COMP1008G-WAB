@@ -102,7 +102,11 @@ public class MemoryGameController implements Initializable {
         if (firstCard == null) {
             firstCard = cardsInGame.get(indexOfCard);
             imageView.setImage(firstCard.getImage());
-        }
+        } else if (secondCard == null) {
+            secondCard = cardsInGame.get(indexOfCard);
+            imageView.setImage(secondCard.getImage());
+        }]
+
 
     }
 
