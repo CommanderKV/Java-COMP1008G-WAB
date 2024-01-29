@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 
+import java.util.ArrayList;
+
 public class MemoryGameController {
 
     @FXML
@@ -17,6 +19,10 @@ public class MemoryGameController {
     private FlowPane cardFlowPane;
 
 
+    private ArrayList<MemoryCard> cardsInGame;
+    private MemoryCard firstCard, secondCard;
+    private int numOfGuesses;
+    private int numOfMatches;
 
     @FXML
     void resetButton(ActionEvent event) {
