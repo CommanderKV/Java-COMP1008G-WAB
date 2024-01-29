@@ -1,7 +1,7 @@
 package com.example.memorycardgame;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 
@@ -16,7 +16,11 @@ public class MemoryGameController {
     @FXML
     private FlowPane cardFlowPane;
 
+
+
     @FXML
-    private Button resetButton;
+    void resetButton(ActionEvent event) {
+
+    }
 
 }

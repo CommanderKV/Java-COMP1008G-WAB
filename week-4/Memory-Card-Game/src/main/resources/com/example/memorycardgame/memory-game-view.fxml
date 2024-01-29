@@ -90,7 +90,7 @@
                         <Label fx:id="CorrectGuessesLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Button fx:id="resetButton" mnemonicParsing="false" text="Play again" />
+                  <Button mnemonicParsing="false" onAction="#resetButton" text="Play again" />
                </children>
             </HBox>
          </children>
