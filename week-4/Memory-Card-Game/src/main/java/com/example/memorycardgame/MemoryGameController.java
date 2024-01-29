@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 
@@ -55,9 +56,49 @@ public class MemoryGameController implements Initializable {
 
     }
 
+    /**
+     * This will add a number to each imageView and set
+     * the image to the back of the card
+     */
     private void initializeImageView() {
-        ImageView imageView = cardFlowPlane.getChildren().get(i);
+        for (int i=0; i < cardFlowPane.getChildren().size(); i++) {
+            ImageView imageView = (ImageView) cardFlowPane.getChildren().get(i);
+            imageView.setImage(new Image(Card.class.getResourceAsStream("imgs/back_of_card.png")));
+            imageView.setUserData(i);
+
+            // Register an event listener for clicks
+            imageView.setOnMouseClicked(event -> {
+                flipCard((int) imageView.getUserData());
+            });
+        }
     }
 
+
+    /**
+     * This will show the back of
+     * all cards that are not matched
+     */
+    private void flipAllCards() {
+        for (int i=0; i<cardsInGame.size(); i++) {
+            ImageView imageView = (ImageView) cardFlowPane.getChildren().get(i);
+            MemoryCard card = cardsInGame.get(i);
+
+            if (card.isMatched()) {
+                imageView.setImage(card.getImage());
+            } else {
+                imageView.setImage(card.getBackOfCardImage());
+            }
+        }
+
+    }
+
+    private void flipCard(int indexOfCard) {
+        if (firstCard == null && secondCard == null) {
+            flipAllCards();
+        }
+
+        ImageView imageView = (ImageView) cardFlowPane.getChildren().get(indexOfCard);
+
+    }
 
 }
