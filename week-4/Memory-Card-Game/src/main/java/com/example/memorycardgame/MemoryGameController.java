@@ -99,6 +99,11 @@ public class MemoryGameController implements Initializable {
 
         ImageView imageView = (ImageView) cardFlowPane.getChildren().get(indexOfCard);
 
+        if (firstCard == null) {
+            firstCard = cardsInGame.get(indexOfCard);
+            imageView.setImage(firstCard.getImage());
+        }
+
     }
 
 }
