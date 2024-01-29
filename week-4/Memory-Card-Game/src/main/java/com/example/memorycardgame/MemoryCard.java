@@ -3,9 +3,9 @@ package com.example.memorycardgame;
 public class MemoryCard extends Card {
     private boolean matched;
 
-    public MemoryCard(String suit, String faceName, boolean matched) {
+    public MemoryCard(String suit, String faceName) {
         super(suit, faceName);
-        this.matched = matched;
+        this.matched = false;
     }
 
     public boolean isMatched() {
