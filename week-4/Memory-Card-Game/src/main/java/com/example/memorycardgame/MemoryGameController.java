@@ -26,7 +26,17 @@ public class MemoryGameController {
 
     @FXML
     void resetButton(ActionEvent event) {
+        firstCard = null;
+        secondCard = null;
 
+        DeckOfCards deck = new DeckOfCards();
+        deck.shuffle();
+
+        cardsInGame = new ArrayList<>();
+
+        for (int i=0; i < cardFlowPane.getChildren()/2; i++) {
+
+        }
     }
 
 }
