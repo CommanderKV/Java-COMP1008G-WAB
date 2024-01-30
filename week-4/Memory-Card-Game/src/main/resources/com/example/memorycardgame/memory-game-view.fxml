@@ -86,8 +86,8 @@
                      <children>
                         <Label text="Guesses:" />
                         <Label text="Correct:" GridPane.rowIndex="1" />
-                        <Label fx:id="GuessesLabel" text="0" GridPane.columnIndex="1" />
-                        <Label fx:id="CorrectGuessesLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="guessesLabel" text="0" GridPane.columnIndex="1" />
+                        <Label fx:id="correctGuessesLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <Button mnemonicParsing="false" onAction="#resetButton" text="Play again" />

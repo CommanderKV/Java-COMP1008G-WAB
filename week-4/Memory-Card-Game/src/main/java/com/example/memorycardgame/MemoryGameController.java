@@ -18,10 +18,10 @@ import java.util.ResourceBundle;
 public class MemoryGameController implements Initializable {
 
     @FXML
-    private Label CorrectGuessesLabel;
+    private Label correctGuessesLabel;
 
     @FXML
-    private Label GuessesLabel;
+    private Label guessesLabel;
 
     @FXML
     private FlowPane cardFlowPane;
@@ -33,7 +33,7 @@ public class MemoryGameController implements Initializable {
     private int numOfMatches;
 
     @FXML
-    void resetButton(ActionEvent event) {
+    void resetButton() {
         firstCard = null;
         secondCard = null;
 
@@ -53,7 +53,8 @@ public class MemoryGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        initializeImageView();
+        resetButton();
     }
 
     /**
@@ -102,12 +103,30 @@ public class MemoryGameController implements Initializable {
         if (firstCard == null) {
             firstCard = cardsInGame.get(indexOfCard);
             imageView.setImage(firstCard.getImage());
+
         } else if (secondCard == null) {
+            numOfGuesses++;
             secondCard = cardsInGame.get(indexOfCard);
             imageView.setImage(secondCard.getImage());
-        }]
+            checkForMatch();
+            updateLabels();
+        }
+    }
 
+    private void updateLabels() {
+        correctGuessesLabel.setText(Integer.toString(numOfMatches));
+        guessesLabel.setText(Integer.toString(numOfGuesses));
+    }
 
+    private void checkForMatch() {
+        if (firstCard.isSameCard(secondCard)) {
+            numOfMatches++;
+            firstCard.setMatched(true);
+            secondCard.setMatched(true);
+        }
+        
+        firstCard = null;
+        secondCard = null;
     }
 
 }
